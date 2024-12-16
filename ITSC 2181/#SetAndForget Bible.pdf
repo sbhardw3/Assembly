@@ -1,0 +1,32 @@
+#main program 
+MAIN: 
+addi s0, zero, 5
+addi t0, zero, 3
+
+add a0, zero, s0
+add a1, zero, t0
+jal PROCESSVALUE
+
+addi t1, zero, a0
+addi a0, zero, t1
+
+
+PROCESSVALUE:
+jal INCREMENTANDMULTIPLY
+addi t1, zero, a0
+
+addi a0, zero, t1
+jal INCREMENTANDMULTIPLY
+
+addi t2, zero, a0
+addi a0, zero, t1
+
+jr ra
+
+INCREMENTANDMULTIPLY:
+addi s0, a0, 1
+addi t0, a1, 1
+
+mul a0, s0, t0
+
+
